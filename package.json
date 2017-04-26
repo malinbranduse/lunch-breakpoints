@@ -1,0 +1,28 @@
+{
+  "name": "simple-breakpoints",
+  "version": "0.0.1",
+  "description": "Simple and lightweight implementation to run javascript on viewport breakpoints",
+  "main": "simple-breakpoints.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malinushj/simple-breakpoints.git"
+  },
+  "keywords": [
+    "javascript",
+    "responsive",
+    "breakpoints",
+    "mobile",
+    "resize",
+    "viewport",
+    "lightweight"
+  ],
+  "author": "Malin Branduse <malin.branduse@gmail.com> (https://malin.codes)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malinushj/simple-breakpoints/issues"
+  },
+  "homepage": "https://github.com/malinushj/simple-breakpoints#readme"
+}
