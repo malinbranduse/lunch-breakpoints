@@ -19,6 +19,22 @@ new LunchBreakpoints({
 });
 ```
 
+## Instalation
+Whichever you prefer:
+```html
+<script src="lunch-breakpoints.js"></script>
+```
+```sh
+npm install --save-dev lunch-breakpoints
+```
+```js
+var LunchBreakpoints = require('lunch-breakpoints');
+```
+```js
+import LunchBreakpoints from 'lunch-breakpoints';
+```
+
+
 ## Usage
 Instantiate with `new`:
 ```js
@@ -78,22 +94,6 @@ where options...
         </td>
     </tr>
 </table>
-
-
-## Instalation
-Whichever you prefer:
-```html
-<script src="lunch-breakpoints.js"></script>
-```
-```sh
-npm install --save-dev lunch-breakpoints
-```
-```js
-var LunchBreakpoints = require('lunch-breakpoints');
-```
-```js
-import LunchBreakpoints from 'lunch-breakpoints';
-```
 
 ***
 > Lunch Breakpoints because **lunch break** and **breakpoints**
