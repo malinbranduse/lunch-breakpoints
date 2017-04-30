@@ -22,9 +22,9 @@
         mobileFirst: false
     };
 
-  // Function constructor
+    // Function constructor
     function SimpleBreakpoints(opts){
-        this._ = extend(defaults, opts);
+        this._ = extend(cloneObj(defaults), opts);
         if (!this._.hasOwnProperty('default') || !this._.hasOwnProperty('breakpoints')) return;
 
         this._init();
@@ -32,34 +32,33 @@
 
     SimpleBreakpoints.prototype._init = function() {
         var self = this,
-            breakpoints = this._.breakpoints,
+            clonedOpts = cloneObj(this._),
+            breakpoints = clonedOpts.breakpoints,
             breakpointsArray = [];
 
         // Put all breakpoints inside an array
         for (var breakpoint in breakpoints)
             breakpoints.hasOwnProperty(breakpoint) &&
-                breakpointsArray.push(parseInt(breakpoint))
+            breakpointsArray.push(parseInt(breakpoint))
 
         // Sort the array - highest breakpoint first
         this.breakpointsArray = breakpointsArray.sort(function(a,b) { return (b-a) });
         this.activeBreakpoint = 'default';
 
-        self._getActiveBreakpoint();
-        self._changedBreakpoint();
-    };
+        this._getActiveBreakpoint(clonedOpts);
+        this._changedBreakpoint(clonedOpts);
 
-    SimpleBreakpoints.prototype._bindEvents = function() {
-        var self = this,
-            throttle = typeof self._.throttle === 'number';
-
-        var resizeHandler = throttle
-            ? throttle(self._getActiveBreakpoint.bind(self), self._.throttle)
-            : self._getActiveBreakpoint.bind(self);
+        // Bind Events
+        var isThrottle = typeof this._.throttle === 'number',
+            handler = function () { self._getActiveBreakpoint(clonedOpts) },
+            resizeHandler = isThrottle
+                ? throttle(handler, this._.throttle)
+                : handler;
 
         window.addEventListener('resize', resizeHandler);
     };
 
-    SimpleBreakpoints.prototype._getActiveBreakpoint = function() {
+    SimpleBreakpoints.prototype._getActiveBreakpoint = function(opts) {
         var self = this,
             w = window.innerWidth,
             bps = this.breakpointsArray,
@@ -76,31 +75,36 @@
         this.activeBreakpoint = activeBp;
 
         if (activeBp !== lastBp)
-            this._changedBreakpoint();
+            this._changedBreakpoint(opts);
 
         return this.activeBreakpoint;
     };
 
-    SimpleBreakpoints.prototype._changedBreakpoint = function() {
+    SimpleBreakpoints.prototype._changedBreakpoint = function(opts) {
 
-    // call breakpoint functions
-    if (this._.breakpoints.hasOwnProperty(this.activeBreakpoint))
-
-        this._.breakpoints[this.activeBreakpoint].call(this);
-
-    else if (this.activeBreakpoint === 'default')
-
-        this._.default.call(this);
+        // call breakpoint functions
+        if (opts.breakpoints.hasOwnProperty(this.activeBreakpoint))
+            opts.breakpoints[this.activeBreakpoint].call(this);
+        else if (this.activeBreakpoint === 'default')
+            opts.default.call(this);
 
     };
 
-  // Helper functions
+    // Helper functions
 
-    function extend( a, b ) {
-        for( var key in b )
+    function extend(a, b) {
+        for(var key in b)
             b.hasOwnProperty(key) &&
-                (a[key] = b[key]);
+            (a[key] = b[key]);
         return a;
+    }
+
+    function cloneObj(obj) {
+        if (obj === null || typeof obj !== 'object')
+            return obj;
+
+        var clone = obj.constructor();
+        return extend(clone, obj);
     }
 
     function throttle(func, wait, options) {
@@ -144,5 +148,5 @@
         return throttled;
     }
 
-  return SimpleBreakpoints;
+    return SimpleBreakpoints;
 }));
