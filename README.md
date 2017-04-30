@@ -83,7 +83,7 @@ where options...
 ## Instalation
 Whichever you prefer:
 ```html
-<script src="simple-breakpoints.js"></script>
+<script src="lunch-breakpoints.js"></script>
 ```
 ```sh
 npm install --save-dev simple-breakpoints

@@ -23,14 +23,14 @@
     };
 
     // Function constructor
-    function SimpleBreakpoints(opts){
+    function LunchBreakpoints(opts){
         this._ = extend(cloneObj(defaults), opts);
         if (!this._.hasOwnProperty('default') || !this._.hasOwnProperty('breakpoints')) return;
 
         this._init();
     }
 
-    SimpleBreakpoints.prototype._init = function() {
+    LunchBreakpoints.prototype._init = function() {
         var self = this,
             clonedOpts = cloneObj(this._),
             breakpoints = clonedOpts.breakpoints,
@@ -58,7 +58,7 @@
         window.addEventListener('resize', resizeHandler);
     };
 
-    SimpleBreakpoints.prototype._getActiveBreakpoint = function(opts) {
+    LunchBreakpoints.prototype._getActiveBreakpoint = function(opts) {
         var self = this,
             w = window.innerWidth,
             bps = this.breakpointsArray,
@@ -80,7 +80,7 @@
         return this.activeBreakpoint;
     };
 
-    SimpleBreakpoints.prototype._changedBreakpoint = function(opts) {
+    LunchBreakpoints.prototype._changedBreakpoint = function(opts) {
 
         // call breakpoint functions
         if (opts.breakpoints.hasOwnProperty(this.activeBreakpoint))
@@ -148,5 +148,5 @@
         return throttled;
     }
 
-    return SimpleBreakpoints;
+    return LunchBreakpoints;
 }));
