@@ -1,6 +1,6 @@
 {
   "name": "lunch-breakpoints",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple and lightweight implementation to run javascript on viewport breakpoints",
   "main": "lunch-breakpoints.js",
   "scripts": {
