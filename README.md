@@ -1,10 +1,10 @@
-# simple-breakpoints
+# lunch-breakpoints 🍕
 > 💻 📲  Simple and lightweight implementation to run javascript on viewport breakpoints
 
 ## What
 Define functions that run once when viewport enters the breakpoints 
 ```js
-new simpleBreakpoints({
+new LunchBreakpoints({
   default: function() {
     // any width larger than 1024
   },
@@ -22,7 +22,7 @@ new simpleBreakpoints({
 ## Usage
 Instantiate with `new`:
 ```js
-new simpleBreakpoints(options);
+new LunchBreakpoints(options);
 ```
 where options...
 <table>
@@ -89,8 +89,11 @@ Whichever you prefer:
 npm install --save-dev simple-breakpoints
 ```
 ```js
-var simpleBreakpoints = require('simple-breakpoints');
+var LunchBreakpoints = require('lunch-breakpoints');
 ```
 ```js
-import simpleBreakpoints from 'simple-breakpoints';
+import LunchBreakpoints from 'lunch-breakpoints';
 ```
+
+***
+> Lunch Breakpoints because **lunch break** and **breakpoints**
