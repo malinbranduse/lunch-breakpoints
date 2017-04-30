@@ -86,7 +86,7 @@ Whichever you prefer:
 <script src="lunch-breakpoints.js"></script>
 ```
 ```sh
-npm install --save-dev simple-breakpoints
+npm install --save-dev lunch-breakpoints
 ```
 ```js
 var LunchBreakpoints = require('lunch-breakpoints');
