@@ -1,6 +1,6 @@
 /**
- * simple-breakpoints master by @malinushj
- * https://github.com/malinushj/simple-breakpoints
+ * lunch-breakpoints master by @malinushj
+ * https://github.com/malinushj/lunch-breakpoints
  * License: MIT
  */
 
