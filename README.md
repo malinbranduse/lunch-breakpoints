@@ -24,6 +24,10 @@ Whichever you prefer:
 ```html
 <script src="lunch-breakpoints.js"></script>
 ```
+```js
+var LunchBreakpoints = window.returnExports;
+```
+***
 ```sh
 npm install --save-dev lunch-breakpoints
 ```
